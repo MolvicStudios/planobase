@@ -133,6 +133,7 @@ document.getElementById('btn-explain')?.addEventListener('click', async () => {
     content.innerHTML = renderMarkdown(response)
     result.style.display = 'block'
     result.scrollIntoView({ behavior: 'smooth' })
+    window.molvicTrack && window.molvicTrack('plan_analyzed')
   } catch (err) {
     content.innerHTML = `<div class="error-msg">Error: ${err.message}</div>`
     result.style.display = 'block'
@@ -161,6 +162,7 @@ document.getElementById('btn-calculate')?.addEventListener('click', async () => 
     renderCalcResult(data, content)
     result.style.display = 'block'
     result.scrollIntoView({ behavior: 'smooth' })
+    window.molvicTrack && window.molvicTrack('materials_calculated')
   } catch (err) {
     content.innerHTML = `<div class="error-msg">Error: ${err.message}</div>`
     result.style.display = 'block'
