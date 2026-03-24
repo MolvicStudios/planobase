@@ -1,0 +1,41 @@
+/* ==============================
+   EXPLAINER — Sección explicador de planos
+   ============================== */
+
+#section-explainer .section-header h1 {
+  color: var(--color-explainer);
+}
+
+#section-explainer .btn-analyze {
+  background: var(--color-explainer);
+}
+
+#section-explainer .btn-analyze:hover {
+  background: #1d4ed8;
+}
+
+#section-explainer .input-tab.active {
+  color: var(--color-explainer);
+}
+
+#section-explainer .result-header h2 {
+  color: var(--color-explainer);
+}
+
+/* Image preview */
+#image-preview {
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  margin-top: 12px;
+}
+
+/* PDF preview */
+#pdf-preview {
+  padding: 16px;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}

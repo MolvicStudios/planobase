@@ -1,0 +1,15 @@
+{
+  "name": "PlanoBase.pro — Planos y materiales con IA",
+  "short_name": "PlanoBase",
+  "description": "Explica planos de construcción, calcula materiales de reforma y encuentra arquitectos.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F6F3",
+  "theme_color": "#1a3a2a",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "categories": ["utilities", "productivity"],
+  "lang": "es"
+}
