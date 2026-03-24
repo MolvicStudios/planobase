@@ -219,6 +219,58 @@ window.copyResult = function(id) {
     })
 }
 
+// ─── Compartir resultado ───
+function getShareText() {
+  return encodeURIComponent('He calculado los materiales de mi reforma con IA en PlanoBase.pro')
+}
+
+function getShareURL() {
+  return encodeURIComponent(window.location.href)
+}
+
+window.shareWhatsApp = function() {
+  window.open(`https://wa.me/?text=${getShareText()}%20${getShareURL()}`, '_blank')
+}
+
+window.shareTwitter = function() {
+  window.open(`https://twitter.com/intent/tweet?text=${getShareText()}&url=${getShareURL()}`, '_blank')
+}
+
+window.shareURL = function() {
+  navigator.clipboard.writeText(window.location.href)
+    .then(() => showToast('¡Enlace copiado!'))
+}
+
+function showToast(msg) {
+  const toast = document.createElement('div')
+  toast.className = 'toast-msg'
+  toast.textContent = msg
+  document.body.appendChild(toast)
+  setTimeout(() => toast.remove(), 2500)
+}
+
+// ─── Feedback rápido ───
+window.sendFeedback = function(type, blockId) {
+  const key = 'planobase_feedback'
+  const data = { type, url: window.location.href, ts: Date.now() }
+  const existing = JSON.parse(localStorage.getItem(key) || '[]')
+  existing.push(data)
+  localStorage.setItem(key, JSON.stringify(existing.slice(-20)))
+
+  const block = document.getElementById(blockId)
+  if (type === 'negative') {
+    const comment = block?.querySelector('.feedback-comment')
+    if (comment) comment.style.display = 'flex'
+  } else {
+    if (block) block.innerHTML = '<span class="feedback-thanks">¡Gracias por tu opinión! 🙏</span>'
+  }
+}
+
+window.submitFeedback = function(blockId) {
+  const block = document.getElementById(blockId)
+  if (block) block.innerHTML = '<span class="feedback-thanks">¡Gracias! Tu opinión nos ayuda a mejorar 🙏</span>'
+}
+
 // ─── Init ───
 document.addEventListener('DOMContentLoaded', () => {
   initDirectory()

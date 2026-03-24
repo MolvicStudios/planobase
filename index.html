@@ -152,11 +152,31 @@
         <h2>Explicación del plano</h2>
         <button class="btn-export" id="btn-export-explainer">Exportar PDF</button>
       </div>
+      <div class="ai-indicator">
+        <span class="ai-badge">✦ Generado por IA</span>
+        <span class="ai-disclaimer">Resultado orientativo — verifica antes de usar</span>
+      </div>
       <div class="result-content" id="explainer-content"></div>
       <div class="result-actions">
         <button onclick="window.copyResult('explainer-content')">Copiar texto</button>
         <button onclick="document.getElementById('explainer-result').style.display='none'">Nuevo análisis</button>
         <a href="https://veridex.quest" target="_blank" rel="noopener" class="btn-veridex">Ver más herramientas ↗</a>
+      </div>
+      <div class="share-block">
+        <span class="share-label">Compartir resultado:</span>
+        <button class="btn-share-wa" onclick="shareWhatsApp()">WhatsApp</button>
+        <button class="btn-share-tw" onclick="shareTwitter()">Twitter / X</button>
+        <button class="btn-share-copy" onclick="shareURL()">Copiar enlace</button>
+      </div>
+      <div class="feedback-block" id="feedback-block-explainer">
+        <span class="feedback-label">¿Ha sido útil este resultado?</span>
+        <button class="btn-feedback" onclick="sendFeedback('positive', 'feedback-block-explainer')" title="Sí, útil">👍</button>
+        <button class="btn-feedback" onclick="sendFeedback('negative', 'feedback-block-explainer')" title="Mejorable">👎</button>
+        <div class="feedback-comment" id="feedback-comment-explainer" style="display:none">
+          <input type="text" id="feedback-text-explainer" placeholder="¿Qué podría mejorar? (opcional)">
+          <button onclick="submitFeedback('feedback-block-explainer')">Enviar</button>
+        </div>
+        <span class="feedback-thanks" id="feedback-thanks-explainer" style="display:none">¡Gracias por tu opinión! 🙏</span>
       </div>
     </div>
   </div>
@@ -208,7 +228,27 @@
         <h2>Lista de materiales</h2>
         <button class="btn-export" id="btn-export-calc">Exportar lista de compra</button>
       </div>
+      <div class="ai-indicator">
+        <span class="ai-badge">✦ Generado por IA</span>
+        <span class="ai-disclaimer">Resultado orientativo — verifica antes de usar</span>
+      </div>
       <div id="calc-content"></div>
+      <div class="share-block">
+        <span class="share-label">Compartir resultado:</span>
+        <button class="btn-share-wa" onclick="shareWhatsApp()">WhatsApp</button>
+        <button class="btn-share-tw" onclick="shareTwitter()">Twitter / X</button>
+        <button class="btn-share-copy" onclick="shareURL()">Copiar enlace</button>
+      </div>
+      <div class="feedback-block" id="feedback-block-calc">
+        <span class="feedback-label">¿Ha sido útil este resultado?</span>
+        <button class="btn-feedback" onclick="sendFeedback('positive', 'feedback-block-calc')" title="Sí, útil">👍</button>
+        <button class="btn-feedback" onclick="sendFeedback('negative', 'feedback-block-calc')" title="Mejorable">👎</button>
+        <div class="feedback-comment" id="feedback-comment-calc" style="display:none">
+          <input type="text" id="feedback-text-calc" placeholder="¿Qué podría mejorar? (opcional)">
+          <button onclick="submitFeedback('feedback-block-calc')">Enviar</button>
+        </div>
+        <span class="feedback-thanks" id="feedback-thanks-calc" style="display:none">¡Gracias por tu opinión! 🙏</span>
+      </div>
     </div>
   </div>
 </section>
@@ -302,6 +342,60 @@
   </div>
 </footer>
 
+<!-- BANNER COOKIES -->
+<div id="cookie-banner" style="display:none" role="dialog" aria-label="Aviso de cookies">
+  <div class="cookie-content">
+    <div class="cookie-text">
+      <strong>Usamos cookies</strong>
+      <p>Utilizamos cookies técnicas necesarias para el funcionamiento y cookies analíticas opcionales para mejorar la experiencia. <a href="/privacidad.html">Política de privacidad</a></p>
+    </div>
+    <div class="cookie-actions">
+      <button onclick="acceptNecessaryCookies()" class="btn-cookie-secondary">Solo necesarias</button>
+      <button onclick="openCookieConfig()" class="btn-cookie-config">Configurar</button>
+      <button onclick="acceptAllCookies()" class="btn-cookie-primary">Aceptar todas</button>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL CONFIGURACIÓN COOKIES -->
+<div id="cookie-config-panel" style="display:none">
+  <div class="cookie-config-overlay" onclick="document.getElementById('cookie-config-panel').style.display='none'"></div>
+  <div class="cookie-config-modal">
+    <h3>Configuración de cookies</h3>
+
+    <div class="cookie-type">
+      <div class="cookie-type-info">
+        <strong>Cookies técnicas</strong>
+        <p>Necesarias para el funcionamiento básico. No se pueden desactivar.</p>
+      </div>
+      <input type="checkbox" checked disabled>
+    </div>
+
+    <div class="cookie-type">
+      <div class="cookie-type-info">
+        <strong>Cookies analíticas</strong>
+        <p>Nos ayudan a entender cómo usas la web para mejorarla.</p>
+      </div>
+      <input type="checkbox" id="cookie-analytics">
+    </div>
+
+    <div class="cookie-type">
+      <div class="cookie-type-info">
+        <strong>Cookies de marketing</strong>
+        <p>Para mostrarte publicidad relevante (AdSense).</p>
+      </div>
+      <input type="checkbox" id="cookie-marketing">
+    </div>
+
+    <div class="cookie-config-actions">
+      <button onclick="acceptNecessaryCookies()">Solo necesarias</button>
+      <button onclick="saveCookieConfig()" class="btn-cookie-primary">Guardar preferencias</button>
+    </div>
+  </div>
+</div>
+
+<script src="/js/cookies.js"></script>
+<script src="/js/onboarding.js"></script>
 <script type="module" src="/js/app.js"></script>
 </body>
 </html>
