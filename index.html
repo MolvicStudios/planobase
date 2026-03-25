@@ -52,9 +52,12 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
+  <link rel="preload" href="/css/tokens.css" as="style">
+  <link rel="preload" href="/css/layout.css" as="style">
+  <link rel="preload" href="/css/components.css" as="style">
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/layout.css">
@@ -66,12 +69,14 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
+
 <!-- NAVBAR -->
-<nav class="navbar">
+<nav class="navbar" aria-label="Principal">
   <div class="container nav-inner">
     <a href="/" class="nav-logo">
       PlanoBase.pro
-      <span class="nav-by">by <a href="https://molvicstudios.pro" target="_blank" rel="noopener">MolvicStudios.pro</a></span>
+      <span class="nav-by">by MolvicStudios.pro</span>
     </a>
     <div class="nav-tabs">
       <button class="nav-tab active" data-section="explainer">Explicar plano</button>
@@ -80,6 +85,8 @@
     </div>
   </div>
 </nav>
+
+<main id="main-content">
 
 <!-- SECCIÓN 1: EXPLICADOR -->
 <section id="section-explainer" class="app-section active">
@@ -186,7 +193,7 @@
 <section id="section-calculator" class="app-section">
   <div class="container section-inner">
     <div class="section-header">
-      <h1>Calcula materiales para tu reforma</h1>
+      <h2>Calcula materiales para tu reforma</h2>
       <p>Describe tu obra y la IA calcula materiales, cantidades y coste estimado</p>
     </div>
 
@@ -257,7 +264,7 @@
 <section id="section-directory" class="app-section">
   <div class="container section-inner" style="max-width:1120px">
     <div class="section-header">
-      <h1>Directorio de arquitectos y aparejadores</h1>
+      <h2>Directorio de arquitectos y aparejadores</h2>
       <p>Encuentra profesionales en tu zona</p>
     </div>
 
@@ -294,6 +301,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -394,8 +403,8 @@
   </div>
 </div>
 
-<script src="/js/cookies.js"></script>
-<script src="/js/onboarding.js"></script>
+<script src="/js/cookies.js" defer></script>
+<script src="/js/onboarding.js" defer></script>
 <script type="module" src="/js/app.js"></script>
 <!-- MolvicStudios Analytics -->
 <script src="/analytics.js" defer></script>
