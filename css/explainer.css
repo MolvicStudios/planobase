@@ -39,3 +39,20 @@
   font-size: 0.9rem;
   color: var(--text-secondary);
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  #image-preview {
+    max-height: 260px;
+  }
+  #pdf-preview {
+    padding: 12px;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 375px) {
+  #image-preview {
+    max-height: 200px;
+  }
+}

@@ -27,7 +27,7 @@
 /* Grid */
 .directory-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
 }
 
@@ -80,7 +80,7 @@
 
 .dir-tipo {
   display: inline-block;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: var(--color-directory);
   background: #ecfdf5;
@@ -90,7 +90,7 @@
 }
 
 .dir-ciudad {
-  font-size: 0.82rem;
+  font-size: 0.875rem;
   color: var(--text-tertiary);
 }
 
@@ -109,7 +109,7 @@
 }
 
 .dir-tag {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 500;
   padding: 2px 10px;
   border-radius: 999px;
@@ -126,8 +126,9 @@
 
 .btn-dir {
   display: inline-block;
-  padding: 6px 14px;
-  font-size: 0.82rem;
+  padding: 10px 14px;
+  font-size: 0.875rem;
+  min-height: 44px;
   font-weight: 500;
   color: var(--color-primary);
   background: var(--bg-elevated);
@@ -155,4 +156,9 @@
   .directory-filters select {
     min-width: 100%;
   }
+}
+
+@media (max-width: 425px) {
+  .dir-card { padding: 14px; }
+  .directory-filters { gap: 8px; }
 }

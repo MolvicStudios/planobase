@@ -39,7 +39,7 @@
 
 .calc-stat-label {
   display: block;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -81,7 +81,7 @@
 .calc-table th {
   padding: 10px 12px;
   font-weight: 500;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   color: var(--text-secondary);
@@ -96,7 +96,7 @@
 
 .calc-table td small {
   display: block;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: var(--text-tertiary);
   margin-top: 2px;
 }
@@ -156,7 +156,7 @@
 /* Disclaimer */
 .calc-disclaimer {
   margin-top: 20px;
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   color: var(--text-tertiary);
   font-style: italic;
   text-align: center;
@@ -180,4 +180,9 @@
   .calc-summary {
     grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 375px) {
+  .calc-form { padding: 12px; }
+  .calc-table th, .calc-table td { padding: 6px 4px; }
 }
